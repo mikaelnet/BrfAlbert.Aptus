@@ -19,6 +19,7 @@ namespace BrfAlbert.Aptus
         private readonly ExcelPackage _excel;
         private readonly ExcelWorksheet _sheet;
         private int _row;
+        private int _dataStartRow = 1;
 
         private readonly DateTime _month;
 
@@ -80,6 +81,7 @@ namespace BrfAlbert.Aptus
 
             _row++;
             _sheet.View.FreezePanes(_row, 1);
+            _dataStartRow = _row;
         }
 
         public void WriteBookingRecords(IEnumerable<CustomerBookings> customers)
@@ -87,7 +89,8 @@ namespace BrfAlbert.Aptus
             foreach (var customer in customers.Where(c => c.ChargeableBookings.Any()))
             {
                 WriteCell(_row, ColCustomer, customer.CustomerName);
-                WriteCell(_row, ColTotal, customer.Total);
+                //WriteCell(_row, ColTotal, customer.Total);
+                _sheet.Cells[_row, ColTotal].Formula = $"=SUM({_sheet.Cells[_row, ColPrice].Address}:{_sheet.Cells[_row + customer.ChargeableBookings.Count()-1, ColPrice].Address})";
                 foreach (var booking in customer.ChargeableBookings)
                 {
                     WriteCell(_row, ColDate, booking.PassDate);
@@ -105,7 +108,8 @@ namespace BrfAlbert.Aptus
             WriteCell(_row, 1, $"Skapad: {DateTime.Now:yyyy-MM-dd HH:mm}");
             WriteCell(_row, ColPrice, "Total:", true);
             _sheet.Row(_row).Style.Border.Top.Style = ExcelBorderStyle.Medium;
-            _sheet.Cells[_row, ColTotal].Value = customers.Sum(c => c.Total);
+            //_sheet.Cells[_row, ColTotal].Value = customers.Sum(c => c.Total);
+            _sheet.Cells[_row, ColTotal].Formula = $"=SUM({_sheet.Cells[_dataStartRow, ColTotal].Address}:{_sheet.Cells[_row - 1, ColTotal].Address})";
         }
 
         public void WriteLaundryHeaders()
