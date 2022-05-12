@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrfAlbert.Aptus", "BrfAlbert.Aptus\BrfAlbert.Aptus.csproj", "{6CEB4317-4BB9-410C-82D0-22E1B5F73742}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrfAlbert.Aptus.Console", "BrfAlbert.Aptus.Console\BrfAlbert.Aptus.Console.csproj", "{6CEB4317-4BB9-410C-82D0-22E1B5F73742}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrfAlbert.Aptus.UI", "BrfAlbert.Aptus.UI\BrfAlbert.Aptus.UI.csproj", "{F6DE87E6-C682-4E0A-9EE3-545A3CC0C950}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrfAlbert.Aptus.Logic", "BrfAlbert.Aptus.Logic\BrfAlbert.Aptus.Logic.csproj", "{C401DEAC-EE3B-43B7-A074-05F13C23D3F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F6DE87E6-C682-4E0A-9EE3-545A3CC0C950}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6DE87E6-C682-4E0A-9EE3-545A3CC0C950}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6DE87E6-C682-4E0A-9EE3-545A3CC0C950}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C401DEAC-EE3B-43B7-A074-05F13C23D3F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C401DEAC-EE3B-43B7-A074-05F13C23D3F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C401DEAC-EE3B-43B7-A074-05F13C23D3F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C401DEAC-EE3B-43B7-A074-05F13C23D3F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

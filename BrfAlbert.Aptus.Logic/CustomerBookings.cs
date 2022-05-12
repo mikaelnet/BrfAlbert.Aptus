@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BrfAlbert.Aptus
+namespace BrfAlbert.Aptus.Logic
 {
     public class CustomerBookings
     {

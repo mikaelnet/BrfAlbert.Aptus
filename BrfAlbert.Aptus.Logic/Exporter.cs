@@ -5,7 +5,7 @@ using System.Linq;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 
-namespace BrfAlbert.Aptus
+namespace BrfAlbert.Aptus.Logic
 {
     public class Exporter
     {

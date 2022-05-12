@@ -4,8 +4,11 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 
-namespace BrfAlbert.Aptus
+namespace BrfAlbert.Aptus.Logic
 {
+    /// <summary>
+    /// Class for reading the Aptus database to find what booking has been made
+    /// </summary>
     public class Repository
     {
         private readonly string _connectionString;
@@ -14,21 +17,6 @@ namespace BrfAlbert.Aptus
         {
             _connectionString = connectionString;
         }
-#if false
-SELECT /*bd.id AS BookingId, bd.PassDate, bd.PassNo, bd.Used, bd.Released, 
-    bo.Id AS ObjectId, bo.Name AS ObjectName, c.Id AS CustomerId,*/ c.Name AS CustomerName, count(*)
-	/*bo.PriceGroup_Id AS PriceGroupId, pgc.Price AS Price*/
-FROM BookingData bd
-JOIN BookingObject bo ON bd.BookingObject_Id=bo.Id
-JOIN Customer c ON bd.CustomerId=c.Id
-LEFT OUTER JOIN PriceGroup pg ON bo.PriceGroup_Id=pg.Id
-LEFT OUTER JOIN PriceGroupCost pgc ON pg.Id=pgc.PriceGroup_Id
-WHERE bd.PassDate between '2019-10-01' and '2019-11-01' /*@from and @until*/
-/*AND bd.BookingObject_Id IN (6, 7, 8)*/ AND c.Name LIKE 'Lgh%'
-GROUP BY c.Name ORDER BY count(*) DESC
-ORDER BY bo.Name, PassDate, PassNo
-#endif
-
 
         public IEnumerable<BookingRecord> GetBookings(DateTime from, DateTime until)
         {

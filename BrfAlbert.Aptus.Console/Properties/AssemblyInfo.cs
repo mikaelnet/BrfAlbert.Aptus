@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("BrfAlbert.Aptus")]
+[assembly: AssemblyTitle("BrfAlbert.Aptus.Console")]
 [assembly: AssemblyDescription("Tool for creating booking reports")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Brf Albert in Gothenburg, Sweden")]
-[assembly: AssemblyProduct("BrfAlbert.Aptus")]
+[assembly: AssemblyProduct("BrfAlbert.Aptus.Console")]
 [assembly: AssemblyCopyright("Copyright © 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
