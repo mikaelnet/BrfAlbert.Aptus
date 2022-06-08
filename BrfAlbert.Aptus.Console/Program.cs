@@ -35,11 +35,11 @@ namespace BrfAlbert.Aptus.Console
             log.WriteLine("  optional month parameter in the form of \"YYYY-MM\": Creates a report for the given month");
             log.WriteLine();
 
-            var lastEvent = repo.GetLatestEventTime();
-            if (lastEvent.AddHours(4) < DateTime.Now)
+            if (!repo.IsAptusDatabaseUpToDate())
             {
-                log.WriteLine($"Warning: The last event in the database is quite old ({lastEvent:yyyy-MM-dd HH:mm}). Have MultiAccess synced?");
+                log.WriteLine($"Warning: The events in the database doesn't seem to be up to date. Have MultiAccess synced?");
             }
+
             if (month >= thisMonth)
             {
                 log.WriteLine("Warning: Current or future months may not contain all bookings!");

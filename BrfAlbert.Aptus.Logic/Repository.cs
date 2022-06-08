@@ -88,5 +88,16 @@ ORDER BY c.Name, PassDate, bo.Name";
             var cmd = new SqlCommand(cmdText, con);
             return (DateTime) cmd.ExecuteScalar();
         }
+
+        /// <summary>
+        /// Events are constantly coming into the aptus system. If there are no events within the last
+        /// four hours, we can assume that the Aptus MultiAccess application hasn't been running for a while
+        /// </summary>
+        /// <returns></returns>
+        public bool IsAptusDatabaseUpToDate()
+        {
+            var lastEvent = GetLatestEventTime();
+            return lastEvent.AddHours(4) > DateTime.Now;
+        }
     }
 }
